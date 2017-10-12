@@ -220,4 +220,39 @@ class ExampleShareSheetVC: UIViewController {
         mmShareSheet.present()
     }
     
+    
+    @IBAction func remoteIconShareSheet(_ sender: Any) {
+        let cards = [
+            [
+                [
+                    "title": "银行卡管理",
+                    "icon": "http://dsposweb.oss-cn-hangzhou.aliyuncs.com/Image/wd_1.png",
+                    "handler": "bankCard"
+                ],[
+                    "title": "信用卡管理",
+                    "icon": "http://dsposweb.oss-cn-hangzhou.aliyuncs.com/Image/wd_5.png",
+                    "handler": "creditCard"
+                ],[
+                    "title": "微信",
+                    "icon": "http://dsposweb.oss-cn-hangzhou.aliyuncs.com/Image/wd_2.png",
+                    "handler": "weChat",
+                ],[
+                    "title": "安全中心",
+                    "icon": "http://dsposweb.oss-cn-hangzhou.aliyuncs.com/Image/wd_6.png",
+                    "handler": "securityCenter",
+                ]
+            ]
+        ]
+        
+        let cancelBtn = [
+            "title": "取消",
+            "type": "danger"
+        ]
+        let mmShareSheet = MMShareSheet.init(title: "远程icon测试", cards: cards, duration: nil, cancelBtn: cancelBtn)
+        mmShareSheet.callBack = { (handler) ->() in
+            self.noticeOnlyText(handler)
+        }
+        mmShareSheet.present()
+        
+    }
 }

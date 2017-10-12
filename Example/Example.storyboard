@@ -78,6 +78,25 @@
                                     <action selector="mutableLineShareSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="ssD-Kh-Sdi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-Cb-IOg">
+                                <rect key="frame" x="60" y="379" width="255" height="50"/>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.69019607839999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hdz-2m-TS5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="present(远程icon)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="remoteIconShareSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="6xa-rZ-kFx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -85,9 +104,12 @@
                             <constraint firstItem="7O2-aS-l2H" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="7G3-Mi-Bgl"/>
                             <constraint firstItem="7O2-aS-l2H" firstAttribute="top" secondItem="o6g-3x-W4T" secondAttribute="bottom" constant="35" id="8gE-u2-z0v"/>
                             <constraint firstItem="Uwf-rG-1t3" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="JJT-ds-icU"/>
+                            <constraint firstItem="5rz-Cb-IOg" firstAttribute="top" secondItem="7O2-aS-l2H" secondAttribute="bottom" constant="35" id="KCd-cm-v0j"/>
+                            <constraint firstItem="5rz-Cb-IOg" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="Xrq-g0-hwS"/>
                             <constraint firstItem="o6g-3x-W4T" firstAttribute="top" secondItem="Uwf-rG-1t3" secondAttribute="bottom" constant="35" id="dzK-ZM-Xjd"/>
                             <constraint firstItem="o6g-3x-W4T" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="fg7-2C-wUb"/>
                             <constraint firstAttribute="trailing" secondItem="Uwf-rG-1t3" secondAttribute="trailing" constant="60" id="mVV-Ag-hoq"/>
+                            <constraint firstAttribute="trailing" secondItem="5rz-Cb-IOg" secondAttribute="trailing" constant="60" id="ums-Oh-R8X"/>
                             <constraint firstItem="Uwf-rG-1t3" firstAttribute="top" secondItem="5yS-5j-7mj" secondAttribute="bottom" constant="60" id="vWo-T7-7jg"/>
                             <constraint firstAttribute="trailing" secondItem="7O2-aS-l2H" secondAttribute="trailing" constant="60" id="wpJ-DT-Y2v"/>
                         </constraints>

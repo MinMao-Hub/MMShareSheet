@@ -15,7 +15,6 @@
 		19A84DFF1F8AF08400475BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A84DFE1F8AF08400475BEB /* Assets.xcassets */; };
 		19A84E021F8AF08400475BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A84E001F8AF08400475BEB /* LaunchScreen.storyboard */; };
 		19C6410E1F8B5B1C005C0E3B /* ExampleShareSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C6410D1F8B5B1C005C0E3B /* ExampleShareSheetVC.swift */; };
-		19F72E851F8AF4B8001B1EF7 /* MMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F72E841F8AF4B8001B1EF7 /* MMButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		19A84E011F8AF08400475BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19A84E031F8AF08400475BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C6410D1F8B5B1C005C0E3B /* ExampleShareSheetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleShareSheetVC.swift; sourceTree = "<group>"; };
-		19F72E841F8AF4B8001B1EF7 /* MMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				19A29C381F8E0978004FBA48 /* MMShareSheet.swift */,
-				19F72E841F8AF4B8001B1EF7 /* MMButton.swift */,
 				19A5B1191F8F417900E5B593 /* MMCardItem.swift */,
 			);
 			path = Components;
@@ -175,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19A5B11A1F8F417900E5B593 /* MMCardItem.swift in Sources */,
-				19F72E851F8AF4B8001B1EF7 /* MMButton.swift in Sources */,
 				194CBE151F8DBA99002729E2 /* SwiftNotice.swift in Sources */,
 				19C6410E1F8B5B1C005C0E3B /* ExampleShareSheetVC.swift in Sources */,
 				19A84DF81F8AF08400475BEB /* AppDelegate.swift in Sources */,

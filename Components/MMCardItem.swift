@@ -8,8 +8,9 @@
 
 import UIKit
 
-let itemWidth:CGFloat = 60.0 * mmscreenWidth / 375   /* item的宽高 */
-
+let mm_itemWidth:CGFloat = 60.0 * ss_mmscreenWidth / 375   /* item的宽高 */
+let mm_itemPadding:CGFloat = 8.0 * ss_mmscreenWidth / 375 /* item距离顶部的距离 */
+let mm_titlePadding:CGFloat = 5.0 * ss_mmscreenWidth / 375 /* item距离顶部的距离 */
 public class MMCardItem: UIView {
     
     var icon: String?
@@ -37,10 +38,8 @@ public class MMCardItem: UIView {
     
     func initUI() {
         
-        let button = MMButton.init(type: .custom)
-        button.frame = CGRect.init(x: (self.bounds.size.width - itemWidth) / 2, y: 8.0, width: itemWidth, height: itemWidth)
-
-        button.handler = self.handler
+        let button = UIButton.init(type: .custom)
+        button.frame = CGRect.init(x: (self.bounds.size.width - mm_itemWidth) / 2, y: mm_itemPadding, width: mm_itemWidth, height: mm_itemWidth)
         
         var imageNormal:UIImage? = nil
         if self.icon != "" {
@@ -62,7 +61,7 @@ public class MMCardItem: UIView {
         self.addSubview(button)
         
         if (self.title != nil && self.title != "")  {
-            let titlelabel = UILabel.init(frame: CGRect.init(x: 0, y: 5.0 + itemWidth + 5, width: self.bounds.size.width, height: 20))
+            let titlelabel = UILabel.init(frame: CGRect.init(x: 0, y: mm_itemWidth + mm_itemPadding + mm_titlePadding, width: self.bounds.size.width, height: 20))
             titlelabel.text = self.title
             titlelabel.textAlignment = .center
             titlelabel.textColor = UIColor(red: 0.365, green: 0.361, blue: 0.357, alpha: 1.00)
@@ -73,9 +72,9 @@ public class MMCardItem: UIView {
         }
     }
     
-    @objc func itemClick(button:MMButton) {
+    @objc func itemClick(button:UIButton) {
         if (self.callBack != nil) {
-            self.callBack!(button.handler!)
+            self.callBack!(self.handler!)
         }
     }
     
