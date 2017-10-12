@@ -17,132 +17,205 @@ class ExampleShareSheetVC: UIViewController {
     }
 
     @IBAction func presentActionSheet(_ sender: Any) {
-        let buttons = [
+        let cards = [
             [
-                "title": "拍照",
-                "handler": "camera",
+                [
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ],[
+                    "title": "QQ好友",
+                    "icon": "qq",
+                    "handler": "qqfriend",
+                ],[
+                    "title": "支付宝",
+                    "icon": "airpay",
+                    "handler": "airpay",
+                ],[
+                    "title": "新浪微博",
+                    "icon": "sina",
+                    "handler": "sinawb",
+                ],[
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ]
             ],[
-                "title": "相册",
-                "handler": "photos",
-                "type": "default"
+                [
+                    "title": "拷贝",
+                    "icon": "copy_link",
+                    "handler": "copy"
+                ],[
+                    "title": "在Safari中打开",
+                    "icon": "safari",
+                    "handler": "safari"
+                ],[
+                    "title": "收藏",
+                    "icon": "collection",
+                    "handler": "collect",
+                ],[
+                    "title": "刷新",
+                    "icon": "refresh_icon",
+                    "handler": "refresh",
+                ],[
+                    "title": "举报",
+                    "icon": "jubao",
+                    "handler": "report",
+                ]
             ]
         ]
         
         let cancelBtn = [
             "title": "取消",
         ]
-        let mmShareSheet = MMShareSheet.init(title: "请选择照片", buttons: buttons, duration: nil, cancelBtn: cancelBtn)
+        let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
         mmShareSheet.callBack = { (handler) ->() in
             self.noticeOnlyText(handler)
         }
         mmShareSheet.present()
     }
     
-    @IBAction func showWechatActionSheet(_ sender: Any) {
-        let buttons = [
+
+    @IBAction func singleLineShareSheet(_ sender: Any) {
+        let cards = [
             [
-                "title": "发送给朋友",
-                "handler": "sendToFriend",
-            ],[
-                "title": "收藏",
-                "handler": "collection",
-                "type": "default"
-            ],[
-                "title": "保存图片",
-                "handler": "save",
-            ],[
-                "title": "打开",
-                "handler": "open",
-            ],[
-                "title": "编辑",
-                "handler": "edit",
-            ],[
-                "title": "定位到聊天位置",
-                "handler": "location",
+                [
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ],[
+                    "title": "QQ好友",
+                    "icon": "qq",
+                    "handler": "qqfriend",
+                ],[
+                    "title": "支付宝",
+                    "icon": "airpay",
+                    "handler": "airpay",
+                ]
             ]
         ]
+        
         let cancelBtn = [
             "title": "取消",
-        ]
-        
-        let mmShareSheet1 = MMShareSheet.init(title: nil, buttons: buttons, duration: nil, cancelBtn: cancelBtn)
-        mmShareSheet1.callBack = { (handler) ->() in
+            ]
+        let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
+        mmShareSheet.callBack = { (handler) ->() in
             self.noticeOnlyText(handler)
         }
-        mmShareSheet1.present()
+        mmShareSheet.present()
+        
     }
     
-    @IBAction func showNoTitleActionSheet(_ sender: Any) {
-        let buttons = [
+    
+    @IBAction func mutableLineShareSheet(_ sender: Any) {
+        
+        let cards = [
             [
-                "title": "微信",
-                "handler": "1",
+                [
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ],[
+                    "title": "QQ好友",
+                    "icon": "qq",
+                    "handler": "qqfriend",
+                ],[
+                    "title": "支付宝",
+                    "icon": "airpay",
+                    "handler": "airpay",
+                ],[
+                    "title": "新浪微博",
+                    "icon": "sina",
+                    "handler": "sinawb",
+                ],[
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ]
             ],[
-                "title": "QQ",
-                "handler": "2",
-            ],[
-                "title": "支付宝",
-                "handler": "3",
-            ],[
-                "title": "新浪微博",
-                "handler": "4",
+                [
+                    "title": "拷贝",
+                    "icon": "copy_link",
+                    "handler": "copy"
+                ],[
+                    "title": "在Safari中打开",
+                    "icon": "safari",
+                    "handler": "safari"
+                ],[
+                    "title": "收藏",
+                    "icon": "collection",
+                    "handler": "collect",
+                ],[
+                    "title": "刷新",
+                    "icon": "refresh_icon",
+                    "handler": "refresh",
+                ],[
+                    "title": "举报",
+                    "icon": "jubao",
+                    "handler": "report",
+                ]
+            ],
+              [
+                [
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ],[
+                    "title": "QQ好友",
+                    "icon": "qq",
+                    "handler": "qqfriend",
+                ],[
+                    "title": "支付宝",
+                    "icon": "airpay",
+                    "handler": "airpay",
+                ],[
+                    "title": "新浪微博",
+                    "icon": "sina",
+                    "handler": "sinawb",
+                ],[
+                    "title": "微信好友",
+                    "icon": "wechat",
+                    "handler": "wxfriend"
+                ],[
+                    "title": "微信朋友圈",
+                    "icon": "moment",
+                    "handler": "wxmoment"
+                ]
             ]
         ]
         
-        let mmShareSheet2 = MMShareSheet.init(title: nil, buttons: buttons, duration: nil, cancelBtn: nil)
-        mmShareSheet2.callBack = { (handler) ->() in
-            self.noticeOnlyText(handler)
-        }
-        mmShareSheet2.present()
-    }
-    
-    @IBAction func showNoCancelActionSheet(_ sender: Any) {
-        let buttons = [
-            [
-                "title": "男",
-                "handler": "男",
-                "type": "blue"
-            ],[
-                "title": "女",
-                "handler": "女",
-                "type": "danger"
-            ]
-        ]
-        
-        let mmShareSheet3 = MMShareSheet.init(title: "请选择性别", buttons: buttons, duration: nil, cancelBtn: nil)
-        mmShareSheet3.callBack = { (handler) ->() in
-            self.noticeOnlyText(handler)
-        }
-        mmShareSheet3.present()
-    }
-    
-    @IBAction func showColorTitleActionSheet(_ sender: Any) {
-        let buttons = [
-            [
-                "title": "查看",
-                "handler": "check",
-                "type": "default"
-            ],[
-                "title": "编辑",
-                "handler": "edit",
-                "type": "blue"
-            ],[
-                "title": "删除",
-                "handler": "delete",
-                "type": "danger"
-            ]
-        ]
         let cancelBtn = [
-            "title": "返回",
-            "handler": "back",
-            "type": "blue"
-        ]
-        
-        let mmShareSheet4 = MMShareSheet.init(title: "文件管理", buttons: buttons, duration: nil, cancelBtn: cancelBtn)
-        mmShareSheet4.callBack = { (handler) ->() in
+            "title": "取消",
+            ]
+        let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
+        mmShareSheet.callBack = { (handler) ->() in
             self.noticeOnlyText(handler)
         }
-        mmShareSheet4.present()
+        mmShareSheet.present()
     }
     
 }

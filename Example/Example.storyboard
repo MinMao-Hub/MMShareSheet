@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="50" id="8ay-44-LHn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="show(有标题有取消)">
+                                <state key="normal" title="present(微信分享)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -40,14 +40,14 @@
                                     <action selector="presentActionSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="JtC-KU-bzu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4J-v1-K9a">
-                                <rect key="frame" x="60" y="207" width="255" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-3x-W4T">
+                                <rect key="frame" x="60" y="209" width="255" height="50"/>
                                 <color key="backgroundColor" red="0.25768141779999998" green="0.82456587960000005" blue="0.4354100695" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0Vv-1x-Bn8"/>
+                                    <constraint firstAttribute="height" constant="50" id="hwt-x0-Xdc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="show(似微信无标题)">
+                                <state key="normal" title="present(单行)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -56,55 +56,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showWechatActionSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="gXU-id-raV"/>
+                                    <action selector="singleLineShareSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="arm-dU-WkW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-NJ-GfT">
-                                <rect key="frame" x="60" y="292" width="255" height="50"/>
-                                <color key="backgroundColor" red="0.99960273499999996" green="0.65419316289999996" blue="0.085991822179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="x3y-hR-VCE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="show(无标题无取消)">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="showNoTitleActionSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="h1t-xE-g7w"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVE-ka-Jpv">
-                                <rect key="frame" x="60" y="374" width="255" height="50"/>
-                                <color key="backgroundColor" red="0.31764705879999999" green="0.69019607839999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="H0J-eA-EoM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="show(有标题无取消)">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="showNoCancelActionSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="RCw-Fl-Uiz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmV-jp-Ffx">
-                                <rect key="frame" x="60" y="464" width="255" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O2-aS-l2H">
+                                <rect key="frame" x="60" y="294" width="255" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.046606875860000001" blue="0.045802324120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="VMI-le-Xap"/>
+                                    <constraint firstAttribute="height" constant="50" id="vw9-MX-yGK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="show(定义标题颜色)">
+                                <state key="normal" title="present(三行)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -113,27 +75,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showColorTitleActionSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="gFk-7d-Fc1"/>
+                                    <action selector="mutableLineShareSheet:" destination="Mg5-44-DqH" eventType="touchUpInside" id="ssD-Kh-Sdi"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bmV-jp-Ffx" secondAttribute="trailing" constant="60" id="1G9-cg-ZUO"/>
-                            <constraint firstItem="bmV-jp-Ffx" firstAttribute="top" secondItem="dVE-ka-Jpv" secondAttribute="bottom" constant="40" id="8XO-Iz-k5Q"/>
-                            <constraint firstItem="n4J-v1-K9a" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="Cjj-nI-Li6"/>
+                            <constraint firstAttribute="trailing" secondItem="o6g-3x-W4T" secondAttribute="trailing" constant="60" id="1Zc-md-7oJ"/>
+                            <constraint firstItem="7O2-aS-l2H" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="7G3-Mi-Bgl"/>
+                            <constraint firstItem="7O2-aS-l2H" firstAttribute="top" secondItem="o6g-3x-W4T" secondAttribute="bottom" constant="35" id="8gE-u2-z0v"/>
                             <constraint firstItem="Uwf-rG-1t3" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="JJT-ds-icU"/>
-                            <constraint firstItem="n4J-v1-K9a" firstAttribute="top" secondItem="Uwf-rG-1t3" secondAttribute="bottom" constant="33" id="JiN-cC-Yxs"/>
-                            <constraint firstItem="dVE-ka-Jpv" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="Pi3-e1-bhP"/>
-                            <constraint firstAttribute="trailing" secondItem="dVE-ka-Jpv" secondAttribute="trailing" constant="60" id="Pvx-mm-p5C"/>
-                            <constraint firstItem="dVE-ka-Jpv" firstAttribute="top" secondItem="Nq5-NJ-GfT" secondAttribute="bottom" constant="32" id="YO9-lb-DT6"/>
-                            <constraint firstItem="Nq5-NJ-GfT" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="Zlq-Ya-ow2"/>
-                            <constraint firstAttribute="trailing" secondItem="Nq5-NJ-GfT" secondAttribute="trailing" constant="60" id="ihs-5s-hmC"/>
-                            <constraint firstItem="Nq5-NJ-GfT" firstAttribute="top" secondItem="n4J-v1-K9a" secondAttribute="bottom" constant="35" id="jhO-GC-l48"/>
+                            <constraint firstItem="o6g-3x-W4T" firstAttribute="top" secondItem="Uwf-rG-1t3" secondAttribute="bottom" constant="35" id="dzK-ZM-Xjd"/>
+                            <constraint firstItem="o6g-3x-W4T" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="fg7-2C-wUb"/>
                             <constraint firstAttribute="trailing" secondItem="Uwf-rG-1t3" secondAttribute="trailing" constant="60" id="mVV-Ag-hoq"/>
-                            <constraint firstItem="bmV-jp-Ffx" firstAttribute="leading" secondItem="Co8-Rl-oD9" secondAttribute="leading" constant="60" id="qd0-nq-3O9"/>
                             <constraint firstItem="Uwf-rG-1t3" firstAttribute="top" secondItem="5yS-5j-7mj" secondAttribute="bottom" constant="60" id="vWo-T7-7jg"/>
-                            <constraint firstAttribute="trailing" secondItem="n4J-v1-K9a" secondAttribute="trailing" constant="60" id="zWL-oE-WeC"/>
+                            <constraint firstAttribute="trailing" secondItem="7O2-aS-l2H" secondAttribute="trailing" constant="60" id="wpJ-DT-Y2v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MMShareSheet" id="Stq-55-Upu"/>

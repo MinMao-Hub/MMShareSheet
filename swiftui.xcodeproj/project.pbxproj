@@ -10,6 +10,7 @@
 		194CBE151F8DBA99002729E2 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CBE141F8DB963002729E2 /* SwiftNotice.swift */; };
 		1986B1601F8C3F2B00CBC6AE /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986B15F1F8C3F2B00CBC6AE /* Example.storyboard */; };
 		19A29C391F8E0978004FBA48 /* MMShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A29C381F8E0978004FBA48 /* MMShareSheet.swift */; };
+		19A5B11A1F8F417900E5B593 /* MMCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A5B1191F8F417900E5B593 /* MMCardItem.swift */; };
 		19A84DF81F8AF08400475BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A84DF71F8AF08400475BEB /* AppDelegate.swift */; };
 		19A84DFF1F8AF08400475BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A84DFE1F8AF08400475BEB /* Assets.xcassets */; };
 		19A84E021F8AF08400475BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A84E001F8AF08400475BEB /* LaunchScreen.storyboard */; };
@@ -21,6 +22,7 @@
 		194CBE141F8DB963002729E2 /* SwiftNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		1986B15F1F8C3F2B00CBC6AE /* Example.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Example.storyboard; sourceTree = "<group>"; };
 		19A29C381F8E0978004FBA48 /* MMShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMShareSheet.swift; sourceTree = "<group>"; };
+		19A5B1191F8F417900E5B593 /* MMCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMCardItem.swift; sourceTree = "<group>"; };
 		19A84DF41F8AF08400475BEB /* swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A84DF71F8AF08400475BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A84DFE1F8AF08400475BEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				19A29C381F8E0978004FBA48 /* MMShareSheet.swift */,
 				19F72E841F8AF4B8001B1EF7 /* MMButton.swift */,
+				19A5B1191F8F417900E5B593 /* MMCardItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A5B11A1F8F417900E5B593 /* MMCardItem.swift in Sources */,
 				19F72E851F8AF4B8001B1EF7 /* MMButton.swift in Sources */,
 				194CBE151F8DBA99002729E2 /* SwiftNotice.swift in Sources */,
 				19C6410E1F8B5B1C005C0E3B /* ExampleShareSheetVC.swift in Sources */,

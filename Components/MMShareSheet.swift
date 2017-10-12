@@ -15,15 +15,19 @@ let mmscreenSize   = mmscreenBounds.size                 /* 屏幕大小 */
 let mmscreenWidth  = mmscreenSize.width                  /* 屏幕宽度 */
 let mmscreenHeight = mmscreenSize.height                 /* 屏幕高度 */
 let mmbuttonHeight:CGFloat = 48.0 * mmscreenWidth / 375  /* button高度 */
-let mmtitleHeight:CGFloat = 40.0 * mmscreenWidth / 375   /* 标题的高度 */
+let mmtitleHeight:CGFloat = 35.0 * mmscreenWidth / 375   /* 标题的高度 */
 let mmbtnPadding:CGFloat = 5 * mmscreenWidth / 375       /* 取消按钮与其他按钮之间的间距 */
 let mmdefaultDuration = 0.3
+let mmcardHeight:CGFloat = 120.0 * mmscreenWidth / 375   /* 单行card的高度 */
+let mmitemHeight:CGFloat = 100.0 * mmscreenWidth / 375   /* 单个item的高度 */
+let mmitemwidth:CGFloat = 93.75 * mmscreenWidth / 375     /* 单个item的宽度 */
+
 
 public typealias ItemClickBlock = (String) ->()
 
 public class MMShareSheet: UIView {
     var title:String?     //标题
-    var buttons:Array<Dictionary<String, String>>?    //按钮组
+    var cards:Array<Array<Dictionary<String, String>>>?    //按钮组
     var duration: Double?  //动画时长
     var cancelButton: Dictionary<String, String>?     //取消按钮
     
@@ -48,13 +52,13 @@ public class MMShareSheet: UIView {
     ///   - buttons: 按钮数组
     ///   - duration: 动画时长
     ///   - cancel: 是否需要取消按钮
-    convenience public init(title: String?, buttons: Array<Dictionary<String, String>>?, duration: Double?, cancelBtn: Dictionary<String, String>?) {
+    convenience public init(title: String?, cards: Array<Array<Dictionary<String, String>>>?, duration: Double?, cancelBtn: Dictionary<String, String>?) {
         
         //半透明背景
         self.init(frame: mmscreenBounds)
         self.title = title ?? ""
-        self.buttons = buttons ?? []
-        let btnCount = self.buttons?.count ?? 0
+        self.cards = cards ?? []
+        let btnCount = self.cards?.count ?? 0
         self.duration = duration ?? (mmdefaultDuration + mmdefaultDuration * Double(btnCount/30))
         self.cancelButton = cancelBtn ?? [:]
         //添加单击事件，隐藏sheet
@@ -69,7 +73,7 @@ public class MMShareSheet: UIView {
     }
     
     func initShareSheet() {
-        let btnCount = buttons?.count ?? 0
+        let btnCount = self.cards?.count ?? 0
         var tHeight:CGFloat = 0.0
         if (self.title != nil && self.title != "")   {
             tHeight = mmtitleHeight
@@ -80,7 +84,7 @@ public class MMShareSheet: UIView {
             cancelHeight = mmbuttonHeight + mmbtnPadding
         }
         
-        shareSheetHeight = CGFloat(btnCount) * mmbuttonHeight + tHeight + cancelHeight + CGFloat(btnCount) * mmdivideLineHeight
+        shareSheetHeight = CGFloat(btnCount) * mmcardHeight + tHeight + cancelHeight + CGFloat(btnCount) * mmdivideLineHeight
         let aFrame:CGRect = CGRect.init(x: 0, y: mmscreenHeight, width: mmscreenWidth, height: shareSheetHeight)
         self.shareSheetView.frame = aFrame
         self.addSubview(self.shareSheetView)
@@ -93,49 +97,46 @@ public class MMShareSheet: UIView {
             let titlelabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: mmscreenWidth, height: mmtitleHeight))
             titlelabel.text = self.title
             titlelabel.textAlignment = .center
-            titlelabel.textColor = UIColor.lightGray
-            titlelabel.font = UIFont.systemFont(ofSize: 14)
+            titlelabel.textColor = UIColor(red: 0.361, green: 0.361, blue: 0.361, alpha: 1.00)
+            titlelabel.font = UIFont.systemFont(ofSize: 12)
             titlelabel.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.941, alpha: 0.90)
             self.shareSheetView.addSubview(titlelabel)
         }
         
         //事件按钮组
-        let buttonsCount = self.buttons?.count ?? 0
-        for index in 0..<buttonsCount {
-            let btn = self.buttons![index]
+        let cardsCount = self.cards?.count ?? 0
+        for index in 0..<cardsCount {
+            let card = self.cards![index]
             
             var tHeight:CGFloat = 0.0
             if (self.title != nil && self.title != "")   {
                 tHeight = mmtitleHeight
             }
             
-            let origin_y = tHeight + mmbuttonHeight * CGFloat(index) + mmdivideLineHeight * CGFloat(index)
+            let origin_y = tHeight + mmcardHeight * CGFloat(index) + mmdivideLineHeight * CGFloat(index)
             
-            let button = MMButton.init(type: .custom)
-            button.frame = CGRect.init(x: 0.0, y: origin_y, width: mmscreenWidth, height: mmbuttonHeight)
-            if #available(iOS 8.2, *) {
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-            } else {
-                // Fallback on earlier versions
+            let scroller = UIScrollView.init(frame: CGRect.init(x: 0.0, y: origin_y, width: mmscreenWidth, height: mmcardHeight))
+            scroller.backgroundColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.80)
+            scroller.showsHorizontalScrollIndicator = false
+            scroller.showsVerticalScrollIndicator = false
+            let contentSizeWidth = CGFloat(card.count) * mmitemwidth > mmscreenWidth ? CGFloat(card.count) * mmitemwidth : (mmscreenWidth + 1.0)
+            scroller.contentSize = CGSize.init(width: contentSizeWidth, height: mmcardHeight)
+            let itemsCount = card.count
+            for subIdx in 0..<itemsCount {
+                
+                let origin_x = mmitemwidth * CGFloat(subIdx)
+                let frame = CGRect.init(x: origin_x, y: (mmcardHeight - mmitemHeight)/2 , width: mmitemwidth, height: mmitemHeight)
+                let item = MMCardItem.init(frame: frame, props: card[subIdx], callback: { (handler) in
+                    self.dismiss()
+                    if (self.callBack != nil) {
+                        self.callBack!(handler)
+                    }
+                })
+                
+                scroller.addSubview(item)
             }
-            button.handler = btn["handler"]
-            button.setTitle(btn["title"], for: .normal)
-            var titleColor:UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.004, alpha: 1.00)
-            switch(btn["type"]) {
-            case "blue"?:
-                titleColor = UIColor(red: 0.082, green: 0.494, blue: 0.984, alpha: 1.00)
-                break
-            case "danger"?:
-                titleColor = UIColor.red
-                break
-            default:
-                titleColor = UIColor(red: 0.000, green: 0.000, blue: 0.004, alpha: 1.00)
-            }
-            button.setTitleColor(titleColor, for: .normal)
-            button.setBackgroundImage(self.imageWithColor(color: UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.80), size: button.bounds.size), for: .normal)
-            button.setBackgroundImage(self.imageWithColor(color: UIColor(red: 0.780, green: 0.733, blue: 0.745, alpha: 0.80), size: button.bounds.size), for: .highlighted)
-            button.addTarget(self, action: #selector(self.itemClick), for: .touchUpInside)
-            self.shareSheetView.addSubview(button)
+            
+            self.shareSheetView.addSubview(scroller)
         }
         
         //如果取消为ture则添加取消按钮
@@ -178,10 +179,6 @@ public class MMShareSheet: UIView {
     }
     
     @objc func singleTapDismiss() {
-        //        点击背景屏幕不取消
-        //        if self.cancel == false {
-        //            return
-        //        }
         self.dismiss()
         if (self.callBack != nil) {
             self.callBack!("cancel")
@@ -237,9 +234,9 @@ public class MMShareSheet: UIView {
 
 extension MMShareSheet: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view == self.shareSheetView {
-            return false
+        if touch.view == self {
+            return true
         }
-        return true
+        return false
     }
 }
