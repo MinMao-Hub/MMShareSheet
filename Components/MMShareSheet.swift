@@ -2,7 +2,7 @@
 //  DDShareSheet.swift
 //  swiftui
 //
-//  Created by 郭永红 on 2017/10/9.
+//  Created by 郭永红 on 2017/10/12.
 //  Copyright © 2017年 keeponrunning. All rights reserved.
 //
 
@@ -100,12 +100,14 @@ public class MMShareSheet: UIView {
             titlelabel.textColor = UIColor(red: 0.361, green: 0.361, blue: 0.361, alpha: 1.00)
             titlelabel.font = UIFont.systemFont(ofSize: 12)
             titlelabel.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.941, alpha: 0.90)
+            titlelabel.adjustsFontSizeToFitWidth = true
             self.shareSheetView.addSubview(titlelabel)
         }
         
         //事件按钮组
         let cardsCount = self.cards?.count ?? 0
         for index in 0..<cardsCount {
+            if index > 3 {break}
             let card = self.cards![index]
             
             var tHeight:CGFloat = 0.0

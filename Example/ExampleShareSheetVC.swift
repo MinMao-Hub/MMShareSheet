@@ -1,8 +1,8 @@
 //
-//  ExampleActionSheetVC.swift
+//  ExampleShareSheetVC.swift
 //  swiftui
 //
-//  Created by 郭永红 on 2017/10/9.
+//  Created by 郭永红 on 2017/10/12.
 //  Copyright © 2017年 keeponrunning. All rights reserved.
 //
 
@@ -76,7 +76,7 @@ class ExampleShareSheetVC: UIViewController {
         let cancelBtn = [
             "title": "取消",
         ]
-        let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
+        let mmShareSheet = MMShareSheet.init(title: "此网页由wx.keeponrunning.com提供", cards: cards, duration: nil, cancelBtn: cancelBtn)
         mmShareSheet.callBack = { (handler) ->() in
             self.noticeOnlyText(handler)
         }
@@ -109,6 +109,7 @@ class ExampleShareSheetVC: UIViewController {
         
         let cancelBtn = [
             "title": "取消",
+            "type": "danger"
             ]
         let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
         mmShareSheet.callBack = { (handler) ->() in
@@ -210,6 +211,7 @@ class ExampleShareSheetVC: UIViewController {
         
         let cancelBtn = [
             "title": "取消",
+            "type": "blue"
             ]
         let mmShareSheet = MMShareSheet.init(title: "分  享", cards: cards, duration: nil, cancelBtn: cancelBtn)
         mmShareSheet.callBack = { (handler) ->() in

@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hwt-x0-Xdc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="present(单行)">
+                                <state key="normal" title="present(单组)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -66,7 +66,7 @@
                                     <constraint firstAttribute="height" constant="50" id="vw9-MX-yGK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="present(三行)">
+                                <state key="normal" title="present(多组)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>

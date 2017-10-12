@@ -68,7 +68,7 @@ public class MMCardItem: UIView {
             titlelabel.textColor = UIColor(red: 0.365, green: 0.361, blue: 0.357, alpha: 1.00)
             titlelabel.font = UIFont.systemFont(ofSize: 12)
             titlelabel.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.941, alpha: 0.00)
-            titlelabel.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin]
+            titlelabel.adjustsFontSizeToFitWidth = true
             self.addSubview(titlelabel)
         }
     }
@@ -84,16 +84,4 @@ public class MMCardItem: UIView {
         
         self.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.941, alpha: 0.90).withAlphaComponent(0.0)
     }
-    
-    func imageWithColor(color:UIColor,size:CGSize) ->UIImage{
-        let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context!.setFillColor(color.cgColor)
-        context!.fill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
-    }
-
 }
