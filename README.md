@@ -23,9 +23,15 @@ MMShareSheet is an simple pop-up selection box(ShareSheet) written in pure Swift
 ### Installation
 
 
+#### Install with  Cocoapods
+
+* `pod 'MMShareSheet', '~> 1.0'`
+* `import MMShareSheet `  in you code
+
+
 #### Copy code into project
 
-[克隆代码](https://github.com/MinMao-Hub/MMActionSheet.git)，然后将components文件夹下面的两个文件 `MMShareSheet.swift` 和 `MMCardItem.swift`加入到你的项目中即可。	
+[克隆代码](https://github.com/MinMao-Hub/MMShareSheet.git)，然后将components文件夹下面的两个文件 `MMShareSheet.swift` 和 `MMCardItem.swift`加入到你的项目中即可。	
 
 Just clone and add `MMShareSheet.swift`, `MMCardItem.swift` to your project.
 
