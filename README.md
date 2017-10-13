@@ -2,16 +2,16 @@
 ## MMShareSheet
 
 
-[![Building](https://img.shields.io/wercker/ci/wercker/docs.svg?style=flat)](https://cocoapods.org/pods/MMActionSheet) 
-[![CocoaPods compatible](https://img.shields.io/badge/pod-v1.3.1-blue.svg?style=flat)](https://cocoapods.org/pods/MMActionSheet) 
-[![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/MinMao-Hub/MMActionSheet)
+[![Building](https://img.shields.io/wercker/ci/wercker/docs.svg?style=flat)](https://cocoapods.org/pods/MMShareSheet) 
+[![CocoaPods compatible](https://img.shields.io/badge/pod-v1.3.1-blue.svg?style=flat)](https://cocoapods.org/pods/MMShareSheet) 
+[![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/MinMao-Hub/MMShareSheet)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 ### Introduction
 
-MMShareSheet 是一个简单的弹出选择框，使用纯swift编写，类似于微信的网页分享控件
+MMShareSheet 是一个简单的弹出选择框，使用纯swift编写，类似于微信(或支付宝)里面的分享(朋友圈打开网页右上角分享)控件
 
-MMShareSheet is an simple pop-up selection box(ShareSheet) written in pure Swift. Similar to the wechat actionsheet shareUIKit
+MMShareSheet is an simple pop-up selection box(ShareSheet) written in pure Swift. Similar to the wechat(or airpay) actionsheet share-UIKit
 
 ### Rquirements
 
@@ -23,101 +23,132 @@ MMShareSheet is an simple pop-up selection box(ShareSheet) written in pure Swift
 ### Installation
 
 
-#### Install with  Cocoapods
-
-* `pod 'MMActionSheet', '~> 1.0'`
-* `import MMActionSheet `  in you code
-
-
 #### Copy code into project
 
-[克隆代码](https://github.com/MinMao-Hub/MMActionSheet.git)，然后将components文件夹下面的两个文件 `MMActionSheet.swift` 和 `MMButton.swift`加入到你的项目中即可。	
+[克隆代码](https://github.com/MinMao-Hub/MMActionSheet.git)，然后将components文件夹下面的两个文件 `MMShareSheet.swift` 和 `MMCardItem.swift`加入到你的项目中即可。	
 
-Just clone and add `MMActionSheet.swift`, `MMButton.swift` to your project.
+Just clone and add `MMShareSheet.swift`, `MMCardItem.swift` to your project.
 
 ### Example
 
-> 1. ***has "Cancel" buttons and titles【有标题有取消按钮】***
+> 1. 【类似于微信分享】- Similar to WeChat share
 > 
-> 2. ***has a "Cancel" button but no title【无标题有取消按钮(类似于微信)】***
+> 2. 【单组cards】- Single group cards(显示组数完全取决于传入的cards数组)
 > 
-> 3. ***no "Cancel" button and no title【无标题无取消按钮】***
+> 3. 【多组cards】- Multi group cards
 > 
-> 4. ***has a title but no "Cancel" button【有标题无取消按钮】***
-> 5. ***Defines the title color【定义标题颜色】*** 
->>目前仅支持三种(`default`,`blue`,`danger`)
+> 4. 【支持远程icon】- Support remote Icon
 
 <div>
-	<img src="gifs/mmactionsheet_1.gif" width="25%" />
-	<img src="gifs/mmactionsheet_2.gif" width="25%" style="margin-left:20px" />
-	<img src="gifs/mmactionsheet_3.gif" width="25%" style="margin-left:20px" />
+	<img src="gifs/mmsharesheet_1.gif" width="40%" />
+	<img src="gifs/mmsharesheet_2.gif" width="40%" style="margin-left:20px" />
 </div>
 <div style="margin-top: 30px">
-	<img src="gifs/mmactionsheet_4.gif" width="25%" />
-	<img src="gifs/mmactionsheet_5.gif" width="25%" style="margin-left:20px" />
+	<img src="gifs/mmsharesheet_3.gif" width="40%" />
+	<img src="gifs/mmsharesheet_4.gif" width="40%" style="margin-left:20px" />
 </div>
 
 
 ### Usage
 
 ```swift
-let buttons = [
+let cards = [
     [
-        "title": "拍照",
-        "handler": "camera",
+        [
+            "title": "微信好友",
+            "icon": "wechat",
+            "handler": "wxfriend"
+        ],[
+            "title": "微信朋友圈",
+            "icon": "moment",
+            "handler": "wxmoment"
+        ],[
+            "title": "QQ好友",
+            "icon": "qq",
+            "handler": "qqfriend",
+        ],[
+            "title": "支付宝",
+            "icon": "airpay",
+            "handler": "airpay",
+        ],[
+            "title": "新浪微博",
+            "icon": "sina",
+            "handler": "sinawb",
+        ]
     ],[
-        "title": "相册",
-        "handler": "photos",
-        "type": "default"
+        [
+            "title": "拷贝",
+            "icon": "copy_link",
+            "handler": "copy"
+        ],[
+            "title": "在Safari中打开",
+            "icon": "safari",
+            "handler": "safari"
+        ],[
+            "title": "收藏",
+            "icon": "collection",
+            "handler": "collect",
+        ],[
+            "title": "刷新",
+            "icon": "refresh_icon",
+            "handler": "refresh",
+        ],[
+            "title": "举报",
+            "icon": "jubao",
+            "handler": "report",
+        ]
     ]
-] 
+]
+    
 let cancelBtn = [
     "title": "取消",
+    "handler": "cancel",
+    "type": "default",
 ]
-let mmActionSheet = MMActionSheet.init(title: "请选择照片", buttons: buttons, duration: nil, cancelBtn: cancelBtn)
-mmActionSheet.callBack = { (handler) ->() in
+let mmShareSheet = MMShareSheet.init(title: "此网页由wx.keeponrunning.com提供", cards: cards, duration: nil, cancelBtn: cancelBtn)
+mmShareSheet.callBack = { (handler) ->() in
     print(handler)
 }
-mmActionSheet.present()
+mmShareSheet.present()
 
 ```
 
 *PS:注释*
 
-* create actionsheet && init 【创建并初始化】
+* create sharesheet && init 【创建并初始化】
 
-`MMActionSheet.init(title: "请选择照片", buttons: buttons, duration: nil, cancel: true)`
+`MMShareSheet.init(title: "此网页由wx.keeponrunning.com提供", cards: cards, duration: nil, cancelBtn: cancelBtn)`
 
 * argument【参数描述】
  
 	* `title` 头部标题
-	* `buttons` 事件按钮数组，类型为`Array<Dictionary<String, String>>`，里面包含每一个按钮的具体属性：
+	* `cards ` 事件按钮数组，类型为`Array<Array<Dictionary<String, String>>>`，里面包含每一行卡片组`Array<Dictionary<String, String>>`，每一行卡片里面又包含item<Dictionary<String, String>>：
 		
 		```
 		[
 	        "title": "拍照",
+	        "icon": "wechat"
 	        "handler": "camera",
-	        "type": "default"
 	    ]
 		```
-		* `title`   按钮标题
-		* `handler` 按钮事件唯一标识，回调的时候根据该值区别处理事件
-		* `type`    按钮类型（展示不同的标题颜色）【`default`,`blue`,`danger`】
+		* `title`   item标题
+		* `icon `   item图标，可以是本地图片名或者远程图片链接
+		* `handler` item事件唯一标识，回调的时候根据该值区别处理事件
 	* `duration ` 动画时长
-	* `cancelBtn `   取消按钮属性，属性跟上述buttons内部button属性一致；若设置为`nil`则无该按钮, 必须要设置某一个属性，默认值为`[
+	* `cancelBtn `   取消按钮属性，类型为`<Dictionary<String, String>`；若设置为`nil`则无该按钮, 必须要设置某一个属性，默认值为`[
     "title": "取消", "handler": "cancel","type": "default"]`
 * callback【回调】
 
 ```
-mmActionSheet.callBack = { (handler) ->() in
+mmShareSheet.callBack = { (handler) ->() in
 	print(handler)
 }
 ```
- `handler` 该handler即为buttons里面button的`handler`，对应的回调过来
+ `handler` 该handler即为cards里面item的`handler`，对应的回调过来
 
-* present【弹出actionsheet】
+* present【弹出sharesheet】
 
-`mmActionSheet.present()`
+`mmShareSheet.present()`
 
 
 
@@ -127,4 +158,4 @@ You are welcome to fork and submit pull requests.
 
 ### License
 
-MMActionSheet is open-sourced software licensed under the MIT license.
+MMShareSheet is open-sourced software licensed under the MIT license.
