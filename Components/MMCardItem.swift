@@ -42,20 +42,26 @@ public class MMCardItem: UIView {
         button.frame = CGRect.init(x: (self.bounds.size.width - mm_itemWidth) / 2, y: mm_itemPadding, width: mm_itemWidth, height: mm_itemWidth)
         
         var imageNormal:UIImage? = nil
-        if self.icon != "" {
-            if (self.icon?.hasPrefix("http"))! {
-                do {
-                    let imgData = try Data.init(contentsOf: URL.init(string: self.icon!)!)
-                    imageNormal = UIImage.init(data: imgData, scale: UIScreen.main.scale)
-                } catch {
-                    //Handle exception
+        
+        DispatchQueue.global().async {
+            if self.icon != "" {
+                if (self.icon?.hasPrefix("http"))! {
+                    do {
+                        let imgData = try Data.init(contentsOf: URL.init(string: self.icon!)!)
+                        imageNormal = UIImage.init(data: imgData, scale: UIScreen.main.scale)
+                    } catch {
+                        //Handle exception
+                    }
+                } else {
+                    imageNormal = UIImage.init(named: self.icon!)
                 }
-            } else {
-                imageNormal = UIImage.init(named: self.icon!)
+            }
+            
+            DispatchQueue.main.async {
+                button.setBackgroundImage(imageNormal, for: .normal)
             }
         }
         
-        button.setBackgroundImage(imageNormal, for: .normal)
         button.addTarget(self, action: #selector(self.itemClick), for: .touchUpInside)
         
         self.addSubview(button)
