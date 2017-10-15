@@ -25,7 +25,7 @@ MMShareSheet is an simple pop-up selection box(ShareSheet) written in pure Swift
 
 #### Install with  Cocoapods
 
-* `pod 'MMShareSheet', '~> 1.0'`
+* `pod 'MMShareSheet', '~> 0.0'`
 * `import MMShareSheet `  in you code
 
 
