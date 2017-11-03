@@ -31,6 +31,9 @@ public class MMShareSheet: UIView {
     var duration: Double?  //动画时长
     var cancelButton: Dictionary<String, String>?     //取消按钮
     
+    //适配iphoneX
+    var paddng_bottom:CGFloat = ss_mmscreenHeight == 812.0 ? 34.0 : 0.0
+    
     var shareSheetHeight:CGFloat = 0
     public var shareSheetView:UIView = UIView()
     
@@ -84,7 +87,7 @@ public class MMShareSheet: UIView {
             cancelHeight = ss_mmbuttonHeight + ss_mmbtnPadding
         }
         
-        shareSheetHeight = CGFloat(btnCount) * ss_mmcardHeight + tHeight + cancelHeight + CGFloat(btnCount) * ss_mmdivideLineHeight
+        shareSheetHeight = CGFloat(btnCount) * ss_mmcardHeight + tHeight + cancelHeight + CGFloat(btnCount) * ss_mmdivideLineHeight + paddng_bottom
         let aFrame:CGRect = CGRect.init(x: 0, y: ss_mmscreenHeight, width: ss_mmscreenWidth, height: shareSheetHeight)
         self.shareSheetView.frame = aFrame
         self.addSubview(self.shareSheetView)
@@ -144,7 +147,7 @@ public class MMShareSheet: UIView {
         //如果取消为ture则添加取消按钮
         if self.cancelButton! != [:] {
             let button = UIButton.init(type: .custom)
-            button.frame = CGRect.init(x: 0, y: Int(self.shareSheetView.bounds.size.height - ss_mmbuttonHeight), width: Int(ss_mmscreenWidth), height: Int(ss_mmbuttonHeight))
+            button.frame = CGRect.init(x: 0, y: Int(self.shareSheetView.bounds.size.height - ss_mmbuttonHeight - paddng_bottom), width: Int(ss_mmscreenWidth), height: Int(ss_mmbuttonHeight))
             if #available(iOS 8.2, *) {
                 button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
             } else {
